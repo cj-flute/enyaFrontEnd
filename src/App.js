@@ -12,7 +12,7 @@ function App() {
       setLoading(true);
       const response = await axios.get('https://api.enye.tech/v1/challenge/records');
       let detailList = []
-      response.data.records.details.map(element => detailList.push(Object.values(element)));
+      response.data.records.profiles.map(element => detailList.push(Object.values(element)));
       setDetail(detailList);
       setLoading(false);
     };
