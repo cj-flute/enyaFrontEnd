@@ -5,16 +5,16 @@ import { useState, useEffect } from 'react'
 function App() {
 
   const [details, setDetail] = useState([]);
-  const [load, setLoad] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchDetails = async () => {
-      setLoad(true);
+      setLoading(true);
       const response = await axios.get('https://api.enye.tech/v1/challenge/records');
       let detailList = []
       response.data.records.details.map(element => detailList.push(Object.values(element)));
       setDetail(detailList);
-      setLoad(false);
+      setLoading(false);
     };
     fetchDetails();
  }, [])
